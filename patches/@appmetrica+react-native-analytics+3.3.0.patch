@@ -1,0 +1,52 @@
+diff --git a/node_modules/@appmetrica/react-native-analytics/android/build.gradle b/node_modules/@appmetrica/react-native-analytics/android/build.gradle
+index 6560843..240e9db 100644
+--- a/node_modules/@appmetrica/react-native-analytics/android/build.gradle
++++ b/node_modules/@appmetrica/react-native-analytics/android/build.gradle
+@@ -70,8 +70,8 @@ android {
+   }
+
+   compileOptions {
+-    sourceCompatibility JavaVersion.VERSION_1_8
+-    targetCompatibility JavaVersion.VERSION_1_8
++    sourceCompatibility JavaVersion.VERSION_17
++    targetCompatibility JavaVersion.VERSION_17
+   }
+ }
+
+
+diff --git a/node_modules/@appmetrica/react-native-analytics/android/src/main/java/io/appmetrica/analytics/reactnative/ExternalAttributionSerializer.java b/node_modules/@appmetrica/react-native-analytics/android/src/main/java/io/appmetrica/analytics/reactnative/ExternalAttributionSerializer.java
+index 51ca45c..d89d356 100644
+--- a/node_modules/@appmetrica/react-native-analytics/android/src/main/java/io/appmetrica/analytics/reactnative/ExternalAttributionSerializer.java
++++ b/node_modules/@appmetrica/react-native-analytics/android/src/main/java/io/appmetrica/analytics/reactnative/ExternalAttributionSerializer.java
+@@ -16,15 +16,22 @@ final class ExternalAttributionSerializer {
+             return -1;
+         }
+
+-        return switch (sourceString) {
+-            case "AppsFlyer" -> ModulesFacade.EXTERNAL_ATTRIBUTION_APPSFLYER;
+-            case "Adjust" -> ModulesFacade.EXTERNAL_ATTRIBUTION_ADJUST;
+-            case "Kochava" -> ModulesFacade.EXTERNAL_ATTRIBUTION_KOCHAVA;
+-            case "Tenjin" -> ModulesFacade.EXTERNAL_ATTRIBUTION_TENJIN;
+-            case "Airbridge" -> ModulesFacade.EXTERNAL_ATTRIBUTION_AIRBRIDGE;
+-            case "Singular" -> ModulesFacade.EXTERNAL_ATTRIBUTION_SINGULAR;
+-            default -> -1;
+-        };
++        switch (sourceString) {
++            case "AppsFlyer":
++                return ModulesFacade.EXTERNAL_ATTRIBUTION_APPSFLYER;
++            case "Adjust":
++                return ModulesFacade.EXTERNAL_ATTRIBUTION_ADJUST;
++            case "Kochava":
++                return ModulesFacade.EXTERNAL_ATTRIBUTION_KOCHAVA;
++            case "Tenjin":
++                return ModulesFacade.EXTERNAL_ATTRIBUTION_TENJIN;
++            case "Airbridge":
++                return ModulesFacade.EXTERNAL_ATTRIBUTION_AIRBRIDGE;
++            case "Singular":
++                return ModulesFacade.EXTERNAL_ATTRIBUTION_SINGULAR;
++            default:
++                return -1;
++        }
+     }
+
+     public static String parseValue(ReadableMap valueMap) {
