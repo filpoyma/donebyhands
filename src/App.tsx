@@ -11,22 +11,13 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
 import duration from 'dayjs/plugin/duration';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-
-import AppNavigator from '~navigation/App.navigator';
-import OverlayDim from '~components/modal/OverlayDim';
-import store from '~redux/store';
-
-// import relativeTime from 'dayjs/plugin/relativeTime';
-// import utc from 'dayjs/plugin/utc';
-// import timezone from 'dayjs/plugin/timezone';
-
 dayjs.locale('ru');
 dayjs.extend(duration);
 dayjs.extend(customParseFormat);
 
-// dayjs.extend(relativeTime);
-// dayjs.extend(utc);
-// dayjs.extend(timezone);
+import AppNavigator from '~navigation/App.navigator';
+import OverlayDim from '~components/modal/OverlayDim';
+import store from '~redux/store';
 
 const navTheme = {
   ...DefaultTheme,
